@@ -1,12 +1,14 @@
 package jwt_v1.com.config.auth;
 
 import jwt_v1.com.domain.Member;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Data
 public class PrincipalDetails implements UserDetails {
     private Member member;
 
