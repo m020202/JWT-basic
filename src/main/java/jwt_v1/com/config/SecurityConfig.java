@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
@@ -20,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .addFilterAfter(new MyFilter3(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new MyFilter1(), SecurityContextPersistenceFilter.class)
                 .csrf(csrf -> csrf.disable())
                 // 세션을 사용하지 않겠다는 의미
                 .sessionManagement(form -> form
