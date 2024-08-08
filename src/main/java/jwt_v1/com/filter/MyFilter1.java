@@ -16,9 +16,7 @@ public class MyFilter1 implements Filter {
 
         // 토큰: 코스
         if (req.getMethod().equals("POST")) {
-            System.out.println("POST 요청됨");
             String headerAuth = req.getHeader("Authorization");
-            System.out.println(headerAuth);
 
             if (headerAuth.equals("cos")) {
                 // 다음 필터 호출하기 (현재 필터는 통과했다는 뜻)
